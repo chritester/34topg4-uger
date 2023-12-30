@@ -1,3 +1,23 @@
+
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+ 
+local function onChildAdded(child)
+    if child.Name == "ErrorPrompt" then
+        print("Disconnected due to poor connection. Rejoining server...")
+        while true do
+        TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
+        wait(10)
+        end
+    end
+end
+ 
+game.CoreGui.ChildAdded:Connect(function(child)
+    if child.Name == "RobloxPromptGui" then
+        child.ChildAdded:Connect(onChildAdded)
+    end
+end)
+
 local osclock = os.clock()
 repeat task.wait() until game:IsLoaded()
 
