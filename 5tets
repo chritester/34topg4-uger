@@ -1,4 +1,8 @@
 
+wait(10)
+
+game.Players.LocalPlayer.PlayerScripts.Scripts.Core["Idle Tracking"].Enabled = false
+
 local Players = game:GetService("Players")
 local TeleportService = game:GetService("TeleportService")
  
